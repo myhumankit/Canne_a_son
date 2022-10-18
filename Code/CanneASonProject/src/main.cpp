@@ -27,6 +27,7 @@ unsigned int distance_derivative;
 bool buz_active[NB_BIP] = {0,0,0,0};
 bool buz_allow = 1;
 double pitch, roll;
+unsigned long timeBuz;
 
 
 /*
@@ -102,9 +103,10 @@ void func_bip(){
 
 
         /*  Acquisition capteur ultrason haut  */
-        if(distance_measured[2] < 1300 && distance_measured[2] > 300 && amplitude[2] > 6000 && buz_active[2] == 0){     // Si un obstacle haut est détecté (via mesure directe et vérification de l'amplitude du signal)
+        if(distance_measured[2] < 1500 && distance_measured[2] > 300 && amplitude[2] > 5000 && buz_active[2] == 0){     // Si un obstacle haut est détecté (via mesure directe et vérification de l'amplitude du signal)
             buz_active[2] = 1;
-        } else  if (distance_measured[2] > 1500 || amplitude[2] < 2000){    // Si il n'y a plus d'obstacles haut détectés (via mesure directe ou mesure de l'amplitude du signal)
+            timeBuz = millis();
+        } else  if ((distance_measured[2] > 1500 || amplitude[2] < 2000) && (millis() - timeBuz > 400)){    // Si il n'y a plus d'obstacles haut détectés (via mesure directe ou mesure de l'amplitude du signal)
 #ifdef DEBUG_SCREEN
             if(buz_allow)
                 M5.dis.fillpix(GREEN_C);
