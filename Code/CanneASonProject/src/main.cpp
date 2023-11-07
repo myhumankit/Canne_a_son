@@ -40,7 +40,8 @@ void func_bip();
 void setup() {
     M5.begin(false,true,true);
     ledMatrix_waitscreen();     // Ecran orange, tant que la configuration n'est pas terminée
-
+    delay(200);
+    
     pinMode(BUTTON, INPUT_PULLUP);  // Interuption pour le bouton contenu dans le M5Atom
     attachInterrupt(digitalPinToInterrupt(BUTTON), buttonInterrupt, FALLING);
 
