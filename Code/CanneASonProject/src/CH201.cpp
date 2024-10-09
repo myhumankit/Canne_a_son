@@ -307,7 +307,8 @@ int sendReceiveCH201(unsigned int *distance, unsigned int *amplitude){
     if (taskflags & TIMER_FLAG) {
         //Serial.print("TIMER_FLAG ->");
         if (num_triggered_devices > 0) {
-            ledcWrite(0, 0);
+            ledcWrite(0, 0); //OFF buzzer
+            ledcWrite(1, 0); //OFF vibreur
             ch_group_trigger(&chirp_group);
         }
         /* Periodic timer interrupt occurred */

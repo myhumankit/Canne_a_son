@@ -15,6 +15,7 @@ buzzer::~buzzer() {}
 
 /*  Bip au démarrage de la canne  */
 void buzzer::bipSystemReady() {
+    ledcSetup(channel, 2000, resolution);
     ledcWrite(channel, VOLUME_BIP_SYSTEM);
     delay(200);
     ledcWrite(channel, 0);
@@ -36,5 +37,3 @@ void buzzer::startBip(int freq) {
 void buzzer::stopBip() {
     ledcWrite(channel, 0);
 }
-
-

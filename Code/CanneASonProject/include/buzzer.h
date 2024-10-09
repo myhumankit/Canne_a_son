@@ -24,5 +24,4 @@ private:
     int resolution;
 };
 
-
 #endif //PCB_CANNEASON_BUZZER_H

@@ -5,9 +5,6 @@
 #ifndef PCB_CANNEASON_BOARDCONFIG_H
 #define PCB_CANNEASON_BOARDCONFIG_H
 
-/*  Define permettant d'activer ou non les couleurs de debug sur l'écran  */
-//#define DEBUG_SCREEN
-
 /*  Définition de la fréquence du microcontrôleur  */
 #define UC_FREQUENCY        100000UL
 
@@ -19,19 +16,21 @@
 #define CH201_MEASUREMENT_INTERVAL	100	                // Période d'échantillonnage, en ms. Période de 100ms = fréquence d'échantillonnage de 10Hz
 
 /*  Déclaration des Entrées/Sorties  */
-#define BUZZER_PIN          26
-#define BUTTON              39
-#define PIN_RESET           23
-#define PIN_SDA             25
-#define PIN_SCL             21
-#define INT1                22
-#define INT2                33
-#define PROG1               19
-#define PROG2               32
+#define BUZZER_PIN          0           
+#define PIN_RESET           2
+#define PIN_SDA             6
+#define PIN_SCL             7
+#define INT1                4
+#define INT2                1
+#define PROG1               3
+#define PROG2               8
+#define VIBREUR_PIN        10
+#define switchBuzVibreur1                20
+#define switchBuzVibreur2                21 
 
 /*  Paramétrage du retour à l'utiliateur via le buzzer  */
 #define NB_BIP              4       // Nombre de cas différents à traiter (ici 4)
-#define VOLUME_BIP          500     // Volume des bips (entre 0 et 512)
+#define VOLUME_BIP          127     // Volume des bips
 #define BIP_OBSTACLE        2500    // Fréquence bip en cas d'obstacle en Hz
 #define BIP_ESCALIER        5000    // Fréquence bip en cas d'escalier/trou en Hz
 #define BIP_OBSTACLE_HAUTEUR 800    // Fréquence bip en cas d'obstacle en hauteur en Hz
